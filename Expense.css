@@ -1,6 +1,7 @@
 *{
     margin:0%;
     padding:0%;
+    box-sizing: border-box;
     font-family: Assistant,-apple-system,BlinkMacSystemFont,
     Segoe UI,Roboto,Helvetice,Arial,sans-serif;
 }
@@ -143,17 +144,14 @@
     font-size: 20px;
 }
 /* recent-----------------------------------------------------------------------------*/
-.recent{
-    width:100%;
+.recent {
+    width: 100%;
     background-color: rgb(168, 205, 242);
-    margin-top:10px;
+    margin-top: 10px;
     font-size: 24px;
-    padding:20px ;
+    padding: 20px;
     box-sizing: border-box;
-    overflow-x:auto;
     height: auto;
-    height:650px;
-    
 }
 .recent-header{
     display: flex;
@@ -182,11 +180,13 @@ table{
    border-radius: 8px;
    min-width: 500px;
 }
-.table-container{
+.table-container {
     width: 100%;
-    overflow-x:auto;
-
-
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
 }
 tr:hover{
     background-color: #f5f5f5;
@@ -484,30 +484,7 @@ background-color: rgb(85, 85, 248);
     background-color: rgb(17, 236, 32);
     border-radius: 10px;
  }
- @media (max-width: 768px){
-
-    .main-container{
-        flex-direction: column;
-    }
-
-    .left-panel,
-    .right-panel{
-        width: 100%;
-        margin-left: 0;
-    }
-    .right-panel{
-        order:2;
-    }
-
-    .table-container{
-        overflow-x: auto;
-        overflow-x:auto ;
-    }
-
-    table{
-        min-width: 700px;
-    }
-}
+ 
 
 .nav-item1:hover{
     background-color: rgb(201, 192, 245);
@@ -539,6 +516,13 @@ input{padding:10px 12px;}
 }
 @media (max-width: 768px) {
 
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
     .expense-Tracker {
         width: 100%;
         height: 60px;
@@ -560,9 +544,6 @@ input{padding:10px 12px;}
     .nav-item1,
     .nav-item2,
     .nav-item3 {
-        display: flex;
-        align-items: center;
-        justify-content: center;
         width: auto;
         height: 40px;
         flex: 1;
@@ -572,29 +553,95 @@ input{padding:10px 12px;}
         font-size: 11px;
         border-radius: 12px;
         white-space: nowrap;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         gap: 4px;
     }
 
     .main-container {
+        width: 100%;
+        display: flex;
         flex-direction: column;
+        gap: 10px;
+        margin: 0;
     }
 
     .left-panel,
     .right-panel {
         width: 100%;
-        margin-left: 0;
+        min-width: 0;
+        margin: 0;
     }
 
     .right-panel {
         order: 2;
     }
 
+    .add {
+        width: 100%;
+        margin-top: 60px;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .form-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .user_input {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .recent {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+        box-sizing: border-box;
+        overflow: visible;
+    }
+
     .table-container {
         width: 100%;
-        overflow-x: auto;
+        max-width: 100%;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: auto;
+    }
+
+    .table-container::-webkit-scrollbar {
+        height: 12px;
+    }
+
+    .table-container::-webkit-scrollbar-track {
+        background: #ddd;
+        border-radius: 10px;
+    }
+
+    .table-container::-webkit-scrollbar-thumb {
+        background: #777;
+        border-radius: 10px;
     }
 
     table {
+        width: max-content;
         min-width: 700px;
+        border-collapse: collapse;
+    }
+
+    .balance,
+    .summary,
+    .category,
+    .top-categories {
+        width: 100%;
+        box-sizing: border-box;
+        margin-left: 0;
+        margin-right: 0;
     }
 }
