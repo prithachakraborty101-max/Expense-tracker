@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Document</title>
+    <link rel="stylesheet"href="Expense.css">
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+<nav class="expense-Tracker">
+     <div class="Expense"> <i class="fa-solid fa-wallet"></i> Expense Tracker</div>
+     
+    <button class="nav-item1" onclick=" goDashboard()"> <i class="fa-solid fa-house"></i>Dashboard</button>
+    <button class="nav-item2" onclick=" goTransactions()"> <i class="fa-solid  fa-money-bill-transfer"></i>
+ Transactions</button>
+    <button class="nav-item3" onclick=" goAnalytics()"> <i class="fa-solid fa-chart-line"></i> Analytics</button>
+    
+</nav>
+<br>
+<div class="main-container">
+<div class="left-panel">
+<header class="add">
+    <h2 id="Addnew">Add new Expense</h2>
+    
+    <form>
+
+        <div class="form-container">
+        <div  id="Expense"> Expense name
+            <br>
+ <input  id="name-input" class="user_input" placeholder="enter expen name">
+ </div>
+ <div id="amount">Amount (₹) <br>
+  <input  id="amount-input" class="user_input" placeholder="enter Amount">  
+ </div>
+ <div id="category">Category <br>
+    <input   id="category-input" class="user_input" placeholder="enter category">
+ </div>
+ <div id="date">Date <br> 
+<input  id="date-input" class="user_input" placeholder="25/07/2026"></div>
+ <div id="notes">Notes(optional) <br>
+<input  id="notes-input" class="user_input" placeholder="Add a note"> </div>
+</div>
+ <button  class="box" id="add-expense">Add Expense</button>
+ </form>
+</header>
+
+<div class="recent">
+    <div class="recent-header">
+    <h2 class="name">Recent Expenses</h2>
+     <button class="clearall" ><i  class="fa-solid fa-trash-can"></i>Clear All</button>
+    </div>
+    
+<div class="table-container">
+<table class="table">
+    <thead>
+        <tr class="first">
+            <td class="symbol">#</td>
+            <td>Expense</td>
+            <td>Category</td>
+            <td>Amount</td>
+            <td>Date</td>
+            <td>Action</td>
+        </tr>
+    </thead>
+
+    <tbody class="tbody">
+
+        <tr class="tr">
+            <td class="symbol">1</td>
+            <td><i  id="lunch" class="fa-solid fa-burger"></i> Lunch</td>
+            <td ><span  class=" do food">Food</span></td>
+            <td>₹250</td>
+            <td>18 jul 2026</td>
+            <td> <button id="delet"><i  class="fa-solid fa-trash-can"></i></button></td>
+        </tr>
+        <tr>
+            <td class="symbol">2</td>
+            <td><i id="bus" class="fa-solid fa-bus"></i> Bus ticket</td>
+            <td ><span class=" do Transport">Transport</span></td>
+            <td>₹120</td>
+            <td>17 jul 2026</td>
+            <td> <button id="delet"><i  class="fa-solid fa-trash-can"></i></button></td>
+        </tr>
+    
+        <tr>
+            <td class="symbol">3</td>
+            <td><i id="shop" class="fa-solid fa-bag-shopping"></i> shopping</td>
+            <td ><span class=" do shopping">shopping</span></td>
+            <td>₹800</td>
+            <td>19 jul 2026</td>
+            <td> <button id="delet"><i  class="fa-solid fa-trash-can"></i></button></td>
+        </tr>
+  
+        <tr>
+           <td class="symbol">4</td>
+            <td><i id="book" class="fa-solid fa-book"></i> Books</td>
+             <td ><span  class="do Education">Education</span></td>
+            <td>₹350</td>
+            <td>14 jul 2026</td>
+            <td> <button id="delet"><i  class="fa-solid fa-trash-can"></i></button></td>
+        </tr>
+    
+        <tr>
+            <td class="symbol">5</td>
+            <td><i id="movie" class="fa-solid fa-film"></i> movie</td>
+             <td ><span class=" do Entartainment">Entartainment</span></td>
+            <td>₹200</td>
+            <td>18 jul 2026</td>
+            <td>
+                <button id="delet"><i  class="fa-solid fa-trash-can"></i></button></td>
+        </tr>
+   
+    </tbody>
+</table>
+</div>
+<div>
+<button class="Load-more"> <i class="fa-solid fa-download"></i> Load more</button>
+</div>
+</div>
+</div>
+
+<div class="right-panel">
+
+<div class="balance">
+   <h2 >  <i class="fa-solid fa-wallet"></i> Total balance</h2>
+    <h1 class="total-balance">₹1.720.00</h1>
+    <div>Total expense</div>
+</div>
+
+<div class="summary">
+    <h2>This month summary</h2>
+    <div class="summary-row">
+        <div>
+            <p>Expenses</p>
+            <h1>₹1,720.00</h1>
+        </div>
+        <div>
+            <p>Transactions</p>
+            <h1>5</h1>
+        </div>
+    </div>
+   
+    <div class="progress-bar">
+        <div class="progress"></div>
+    </div>
+     <p class="percentage">70% of monthly budget</p>
+    <p class="budget">₹5,000</p>
+</div>
+<div class="category">
+<h2>Expense by Category</h2>
+<div class="donut-chart"></div>
+<ul>
+    <li class="cfood">
+        <span class="fooditem">Food</span>
+         <span class="moany">₹250(14.5%)</span>
+    </li>
+    <li class="cfood"> <span>Transport</span>
+         <span>₹120(7.0%)</span>
+    </li>
+    <li class="cfood"> <span>Shopping</span>
+         <span>₹800(46.5%)</span>
+    </li>
+    <li class="cfood">
+         <span>Education</span>
+          <span>₹350(20.3%)</span>
+    </li>
+    <li class="cfood"> <span>Entartainment</span>
+         <span>₹200(11.6%)</span>
+    </li>
+</ul>
+</div>
+<div class="top-categories">
+    <div class="top-header">
+        <h2>Top Categories</h2>
+        <span>➜</span>
+    </div>
+ <ul class="top-category-list"></ul>
+</div>
+   
+</div>
+</div>
+
+    <script src="Expense.js"></script>
+</body>
+</html>
