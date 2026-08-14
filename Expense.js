@@ -2,7 +2,6 @@ let Expensename=document.querySelector("#name-input"),
 amountExpense=document.querySelector("#amount-input"),
 categoryExpense=document.querySelector("#category-input"),
 dateExpense=document.querySelector("#date-input"),
-notesExpense=document.querySelector("#notes-input"),
 addExpense=document.querySelector("#add-expense");
 clearall=document.querySelector(".clearall");
 Loadmore=document.querySelector(".Load-more");
@@ -23,11 +22,10 @@ addExpense.onclick=function (event){
    let amount=amountExpense.value;
    let category=categoryExpense.value;
    let date=dateExpense.value;
-   let notes=notesExpense.value;
-
+  
 
  let addnewexpense={
-   name,amount,category,date,notes
+   name,amount,category,date
 };
 expense. push(addnewexpense);
 console.log(expense);
@@ -41,7 +39,6 @@ Expensename.value="";
 amountExpense.value="";
 categoryExpense.value="";
 dateExpense.value="";
-notesExpense.value="";
 
 };
 let tbody=document.querySelector(".tbody");
