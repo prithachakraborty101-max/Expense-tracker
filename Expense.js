@@ -230,7 +230,11 @@ function updateTopCategories() {
 
   topCategoryList.innerHTML = "";
 
-  sortedCategories.forEach(function(item, index) {
+  let maxAmount = sortedCategories.length > 0
+  ? sortedCategories[0][1]
+  : 0;
+
+sortedCategories.forEach(function(item, index) {
 
     let categoryName = item[0];
     let amount = item[1];
@@ -239,6 +243,10 @@ function updateTopCategories() {
       categoryName.charAt(0).toUpperCase() +
       categoryName.slice(1);
 
+    let percentage = maxAmount > 0
+      ? (amount / maxAmount) * 100
+      : 0;
+
     topCategoryList.innerHTML += `
       <li>
         • ${displayName}
@@ -246,10 +254,10 @@ function updateTopCategories() {
       </li>
 
       <div class="progress-bar2">
-        <div class="progress2"></div>
+        <div class="progress2" style="width: ${percentage}%"></div>
       </div>
     `;
-  });
+});
 }
 function goDashboard() {
     document.querySelector(".balance").scrollIntoView({
